@@ -1,12 +1,7 @@
-// import { timeOfDays } from "./hello";
-
 const body = document.getElementsByTagName("body")[0];
 const slideNext = document.querySelector(".slide-next");
 const slidePrev = document.querySelector(".slide-prev");
 let timeOfDay = "";
-
-// body.style.backgroundImage =
-//   "url('https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/evening/11.jpg')";
 
 function timeOfDays() {
   const date = new Date();
@@ -28,14 +23,16 @@ var randomNum = getRandomIntInclusive(1, 20);
 
 function setBg() {
   timeOfDays();
-  if (timeOfDay == "Morning")
-    body.style.backgroundImage = `url('https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/morning/${randomNum}.jpg')`;
-  else if (timeOfDay == "Afternoon")
-    body.style.backgroundImage = `url('https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/afternoon/${randomNum}.jpg')`;
-  else if (timeOfDay == "Evening") {
-    body.style.backgroundImage = `url('https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/evening/${randomNum}.jpg')`;
-  } else
-    body.style.backgroundImage = `url('https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/night/${randomNum}.jpg')`;
+  const timeOfDay = timeOfDays().toLocaleLowerCase();
+  console.log(timeOfDay);
+  const bgNum = randomNum.toString().padStart(2, "0");
+  const imgLink = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg`;
+
+  const img = new Image();
+  img.src = imgLink;
+  img.addEventListener("load", () => {
+    body.style.backgroundImage = `url(${img.src})`;
+  });
 }
 
 function getSlideNext() {
@@ -49,6 +46,7 @@ function getSlidePrev() {
   if (randomNum == 0) randomNum = 20;
   setBg();
 }
+
 slidePrev.addEventListener("click", getSlidePrev);
 slideNext.addEventListener("click", getSlideNext);
 setBg();
