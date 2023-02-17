@@ -3,3 +3,4 @@ import "./time.js";
 import "./slider.js";
 import "./weather.js";
 import "./quote.js";
+import "./audio.js";

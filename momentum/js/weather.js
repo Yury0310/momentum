@@ -7,8 +7,6 @@ const humidity = document.querySelector(".humidity");
 let city = document.querySelector(".city");
 
 async function getWeather() {
-  // window.addEventListener("beforeunload", setLocalStorage);
-  // window.addEventListener("load", getLocalStorage);
   setTimeout(async () => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=2bd0c9f9541bb28fb71701b1a2e9bab3&units=metric`;
     console.log(city.value);
