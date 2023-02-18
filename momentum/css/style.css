@@ -34,9 +34,9 @@ body {
 .player-controls {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 120px;
-  margin-bottom: 28px;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 15px;
 }
 
 .play-list {
@@ -67,6 +67,32 @@ body {
 
 .item-active::before {
   color: #c5b358;
+}
+
+.music-name {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 50px;
+  /* margin-bottom: 10px; */
+}
+
+.progress-container {
+  width: 200px;
+  height: 10px;
+  background-color: rgba(223, 219, 218, 0.78);
+  margin-bottom: 20px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.progress {
+  height: 10px;
+  background: blue;
+  border-radius: 5px;
 }
 
 .player-icon,
