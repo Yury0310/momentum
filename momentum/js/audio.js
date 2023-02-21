@@ -59,7 +59,6 @@ function playAudio() {
 }
 
 function playNext() {
-  li[playNum].style.color = "white";
   playNum++;
   if (playNum > playList.length - 1) playNum = 0;
   isPlay = !isPlay;
@@ -68,8 +67,6 @@ function playNext() {
 }
 
 function playPrev() {
-  li[playNum].style.color = "white";
-
   playNum--;
   if (playNum == -1) playNum = playList.length - 1;
   isPlay = !isPlay;
