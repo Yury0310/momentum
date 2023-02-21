@@ -12,28 +12,48 @@ const ul = document.querySelector(".play-list");
 let isPlay = false;
 let playNum = 0;
 
-playList.forEach((el) => {
+playList.forEach((el, index) => {
   const li = document.createElement("li");
   ul.append(li);
   li.classList.add("play-item");
   li.textContent = el.title;
+  li.addEventListener("click", () => {
+    crtTm = 0;
+    isPlay = false;
+    playNum = index;
+    playAudio();
+  });
 });
 
 const li = document.getElementsByClassName("play-item");
 
 const audio = new Audio();
 
+let crtTm = 0;
+
 function playAudio() {
   musicName.textContent = playList[playNum].title;
+  for (let i = 0; i < li.length; i++) {
+    li[i].style.color = "white";
+  }
   li[playNum].style.color = "red";
   if (!isPlay) {
     button.classList.add("pause");
     audio.src = playList[playNum].src;
+    console.log(playList[playNum]);
+    if (playList[playNum]) {
+      audio.currentTime = crtTm;
+    } else {
+      audio.currentTime = 0;
+    }
     audio.play();
+
     isPlay = true;
   } else {
     button.classList.remove("pause");
+    crtTm = audio.currentTime;
     audio.pause();
+
     isPlay = false;
   }
 }
@@ -44,6 +64,7 @@ function playNext() {
   if (playNum > playList.length - 1) playNum = 0;
   isPlay = !isPlay;
   playAudio();
+  audio.currentTime = 0;
 }
 
 function playPrev() {
@@ -53,6 +74,7 @@ function playPrev() {
   if (playNum == -1) playNum = playList.length - 1;
   isPlay = !isPlay;
   playAudio();
+  audio.currentTime = 0;
 }
 
 button.addEventListener("click", playAudio);
@@ -77,6 +99,7 @@ function setProgress(e) {
   const clickX = e.offsetX;
   const duration = audio.duration;
   audio.currentTime = (clickX / width) * duration;
+  crtTm = audio.currentTime;
 }
 
 progressContainer.addEventListener("click", setProgress);
@@ -86,3 +109,7 @@ progressContainer.addEventListener("click", setProgress);
 audio.addEventListener("ended", playNext);
 
 //musicTime
+// function showMusicTime() {
+//   setTimeout(showMusicTime, 1000);
+// }
+// console.log(audio.duration);
