@@ -3,14 +3,13 @@ const temperature = document.querySelector(".temperature");
 const weatherDescription = document.querySelector(".weather-description");
 const wind = document.querySelector(".wind");
 const humidity = document.querySelector(".humidity");
-// const error =
+const error = document.querySelector(".weather-error");
 
 let city = document.querySelector(".city");
 
 async function getWeather() {
   city.value = getLocalStorage();
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=2bd0c9f9541bb28fb71701b1a2e9bab3&units=metric`;
-  console.log(city.value);
   const res = await fetch(url);
   const data = await res.json();
   weatherIcon.className = "weather-icon owf";

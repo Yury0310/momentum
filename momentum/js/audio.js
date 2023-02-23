@@ -6,7 +6,10 @@ const nextBtn = document.querySelector(".play-next");
 const progressContainer = document.querySelector(".progress-container");
 const progress = document.querySelector(".progress");
 const musicName = document.querySelector(".music-name");
-//const musicTime = document.querySelector(".music-time");
+const musicTime = document.querySelector(".music-time");
+const musicDur = document.querySelector(".music-dur");
+const musicCurr = document.querySelector(".music-curr");
+
 const ul = document.querySelector(".play-list");
 
 let isPlay = false;
@@ -105,8 +108,30 @@ progressContainer.addEventListener("click", setProgress);
 
 audio.addEventListener("ended", playNext);
 
-//musicTime
-// function showMusicTime() {
-//   setTimeout(showMusicTime, 1000);
-// }
-// console.log(audio.duration);
+//musicTime;
+function showMusicTime() {
+  let hoursCurr = Math.floor(audio.currentTime / 60 / 60);
+  let minutesCurr = Math.floor(audio.currentTime / 60) - hoursCurr * 60;
+  let secondsCurr = Math.floor(audio.currentTime % 60);
+  let formCurr = `${minutesCurr.toString().padStart(2, "0")}:${secondsCurr
+    .toString()
+    .padStart(2, "0")}`;
+  if (isNaN(audio.duration)) {
+    musicDur.textContent = "";
+  } else {
+    let hoursDur = Math.floor(audio.duration / 60 / 60);
+    let minutesDur = Math.floor(
+      audio.duration / 60 - hoursDur * 60 - minutesCurr
+    );
+    let secondsDur = Math.floor((audio.duration % 60) - secondsCurr);
+    let formDur = `${minutesDur.toString().padStart(2, "0")}:${secondsDur
+      .toString()
+      .padStart(2, "0")}`;
+
+    musicDur.textContent = formDur;
+  }
+  musicCurr.textContent = formCurr;
+
+  setTimeout(showMusicTime, 1000);
+}
+showMusicTime();
