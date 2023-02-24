@@ -4,6 +4,7 @@
 }
 
 * {
+  overflow: hidden;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -44,6 +45,7 @@ body {
 }
 
 .play-item {
+  font-size: 10px;
   z-index: 100;
   position: relative;
   padding: 5px;
