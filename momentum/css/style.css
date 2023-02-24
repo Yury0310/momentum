@@ -86,8 +86,13 @@ body {
   font-size: 10px;
 }
 
+#range {
+  width: 100px;
+  height: 5px;
+}
+
 .progress-container {
-  width: 200px;
+  width: 219px;
   height: 10px;
   background-color: rgba(223, 219, 218, 0.78);
   margin-bottom: 3px;

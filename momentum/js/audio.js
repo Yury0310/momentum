@@ -120,10 +120,8 @@ function showMusicTime() {
     musicDur.textContent = "";
   } else {
     let hoursDur = Math.floor(audio.duration / 60 / 60);
-    let minutesDur = Math.floor(
-      audio.duration / 60 - hoursDur * 60 - minutesCurr
-    );
-    let secondsDur = Math.floor((audio.duration % 60) - secondsCurr);
+    let minutesDur = Math.floor(audio.duration / 60 - hoursDur * 60);
+    let secondsDur = Math.floor(audio.duration % 60);
     let formDur = `${minutesDur.toString().padStart(2, "0")}:${secondsDur
       .toString()
       .padStart(2, "0")}`;
@@ -134,4 +132,10 @@ function showMusicTime() {
 
   setTimeout(showMusicTime, 1000);
 }
+
 showMusicTime();
+
+var range = document.getElementById("range");
+range.onchange = function () {
+  audio.volume = parseFloat(this.value / 10);
+};
