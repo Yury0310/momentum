@@ -362,6 +362,20 @@ body {
 .author {
   min-height: 20px;
 }
+.info {
+  position: absolute;
+  left: 0px;
+  font-size: 10px;
+
+  margin-top: 10px;
+}
+.info a {
+  text-decoration: none;
+  color: #fff;
+}
+.info a:hover {
+  text-decoration: underline;
+}
 
 @media (max-width: 768px) {
   .time {
