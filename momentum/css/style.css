@@ -365,9 +365,8 @@ body {
 .info {
   position: absolute;
   left: 0px;
+  bottom: 0px;
   font-size: 10px;
-
-  margin-top: 10px;
 }
 .info a {
   text-decoration: none;
