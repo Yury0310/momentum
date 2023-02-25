@@ -4,7 +4,6 @@
 }
 
 * {
-  overflow: hidden;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -45,7 +44,7 @@ body {
 }
 
 .play-item {
-  font-size: 10px;
+  font-size: 15px;
   z-index: 100;
   position: relative;
   padding: 5px;
@@ -58,6 +57,13 @@ body {
 
 .play-item:hover {
   opacity: 1;
+}
+.todo {
+  position: absolute;
+  right: 61px;
+  top: 40px;
+  height: 301px;
+  width: 300px;
 }
 
 .play-item::before {
@@ -91,6 +97,56 @@ body {
 #range {
   width: 100px;
   height: 5px;
+}
+
+.todo h2 {
+  text-align: initial;
+  color: rgba(242, 231, 137, 0.57);
+}
+#input {
+  color: white;
+  border-radius: 5px;
+  border: 2px solid rgba(242, 231, 137, 0.77);
+  height: 30px;
+  padding: 10px;
+  background-color: rgba(241, 129, 141, 0.77);
+}
+
+.li {
+  list-style-type: none;
+  text-align: start;
+  margin: 5px;
+  border-radius: 5px;
+  border: 2px solid rgba(242, 231, 137, 0.57);
+  height: 30px;
+  padding: 5px;
+  background-color: rgba(241, 129, 141, 0.57);
+}
+.li-active {
+  border: none;
+  background-color: rgba(89, 146, 94, 0.57);
+  color: black;
+}
+.btn,
+.btn2 {
+  border-radius: 5px;
+  border: 3px solid rgba(241, 129, 141, 0.77);
+  height: 30px;
+  width: 50px;
+  padding: 1px;
+  background-color: rgba(242, 231, 137, 0.77);
+  cursor: pointer;
+}
+.btn1 {
+  position: absolute;
+  right: 10px;
+  border-radius: 5px;
+  border: 3px solid rgba(241, 129, 141, 0.77);
+  height: 20px;
+  width: 50px;
+  padding: 0px;
+  background-color: rgba(242, 231, 137, 0.77);
+  cursor: pointer;
 }
 
 .progress-container {
